@@ -1,0 +1,159 @@
+*{box-sizing:border-box}
+html,body{margin:0;background:#050708;color:#e9ece7;font-family:"Courier New",Courier,monospace;height:100%;overflow:hidden}
+button{font:inherit;cursor:pointer}
+
+/* ===== TELA DE TÍTULO ===== */
+.title{display:grid;place-items:center;background:#0a0e0e;min-height:100vh}
+.grain{position:fixed;inset:0;opacity:.13;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 2px,#fff1 3px),repeating-linear-gradient(90deg,#fff1 0 1px,transparent 1px 5px);z-index:1}
+.title-card{position:relative;z-index:2;width:min(780px,92vw);padding:54px;text-align:center;border:1px solid #68736f;background:#0e1514;box-shadow:0 0 0 6px #050707}
+.eyebrow{font-size:11px;letter-spacing:4px;color:#aab4ae}
+.title-card h1{font:700 clamp(48px,9vw,96px)/.85 Georgia,"Times New Roman",serif;letter-spacing:6px;margin:22px 0;color:#f0f0e8;text-shadow:4px 4px #28302f}
+.title-card h1 span{color:#d5c45c}
+.title-card p{max-width:560px;margin:0 auto 28px;color:#adb5af;line-height:1.7;font-size:15px}
+.menu{display:flex;gap:12px;justify-content:center;margin-bottom:24px;flex-wrap:wrap}
+.menu button{padding:13px 26px;background:#1c2927;border:1px solid #7b8580;color:#fff;transition:background .15s}
+.menu button:hover{background:#30403d}
+.title-card small{color:#707b75;font-size:11px}
+
+/* ===== BARRA SUPERIOR ===== */
+.topbar{height:54px;background:#0b1111;border-bottom:1px solid #59625e;display:flex;align-items:center;justify-content:space-between;padding:0 16px;position:relative;z-index:20}
+.topbar strong{display:block;font-size:12px;letter-spacing:2px}
+.topbar span{display:block;color:#88938d;font-size:10px;margin-top:3px;letter-spacing:1px}
+.actions{display:flex;align-items:center;gap:8px}
+.actions #clues{color:#d5c45c;font-size:12px;cursor:pointer}
+.actions #clues:hover{text-decoration:underline}
+.actions button{background:#151e1d;color:#e7ebe7;border:1px solid #58635e;padding:7px 12px;transition:background .15s}
+.actions button:hover{background:#253532}
+
+/* ===== TELA DO JOGO ===== */
+.screen{height:calc(100vh - 54px);display:grid;place-items:center;padding:0}
+.scene{
+  width:min(1280px,100vw);
+  height:min(calc(100vh - 54px),720px);
+  position:relative;
+  background:#101414 center/cover no-repeat;
+  overflow:hidden;
+  box-shadow:0 0 0 4px #070909;
+}
+.fade{
+  position:absolute;inset:0;pointer-events:none;z-index:3;
+  background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.22) 60%,rgba(0,0,0,.78) 100%);
+}
+.scene-title{
+  position:absolute;top:16px;left:16px;z-index:5;
+  background:rgba(8,12,12,.85);border-left:3px solid #d5c45c;
+  padding:10px 14px;font-size:11px;letter-spacing:1px;max-width:480px;line-height:1.4;
+}
+
+/* ===== SPRITES ===== */
+.sprites{position:absolute;inset:0;z-index:4;pointer-events:none}
+.sprite{
+  position:absolute;
+  width:130px;height:190px;
+  object-fit:contain;
+  image-rendering:pixelated;
+  filter:drop-shadow(5px 8px 0 #000a);
+  transform:translateX(-50%);
+  transition:filter .2s,transform .2s,opacity .2s;
+}
+.sprite.active{
+  filter:drop-shadow(0 0 14px #d5c45c) drop-shadow(5px 8px 0 #000a);
+  transform:translateX(-50%) scale(1.06);
+  z-index:5;
+}
+.sprite.dim{opacity:.55}
+
+/* ===== DIÁLOGO ===== */
+.dialogue{
+  position:absolute;z-index:10;
+  left:2.5%;right:2.5%;bottom:2.5%;
+  display:flex;gap:14px;align-items:flex-end;
+}
+.portrait{
+  width:150px;height:150px;flex:0 0 150px;
+  background:#0b1010;border:2px solid #7b8580;
+  box-shadow:0 0 0 4px #050707;overflow:hidden;
+}
+.portrait img{
+  width:100%;height:100%;object-fit:contain;image-rendering:pixelated;
+}
+.panel{
+  flex:1;min-height:150px;
+  background:rgba(10,19,18,.95);
+  border:2px solid #78837d;
+  box-shadow:0 0 0 4px #050707;
+  padding:16px 20px;position:relative;
+}
+.speaker{
+  color:#d5c45c;font-weight:bold;font-size:13px;
+  letter-spacing:1.5px;margin-bottom:8px;
+}
+.text{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:17px;line-height:1.55;white-space:pre-line;
+  min-height:52px;color:#e8ebe6;
+}
+.hint{
+  text-align:right;color:#7f8983;font-size:10px;margin-top:10px;letter-spacing:.5px;
+}
+
+/* ===== ESCOLHAS ===== */
+.choices{display:grid;gap:7px;margin-top:8px}
+.choices button{
+  background:#182522;color:#eee;border:1px solid #68736e;
+  padding:11px 14px;text-align:left;transition:background .15s;
+}
+.choices button:hover{background:#2a3936}
+.choices span{color:#d5c45c;margin-right:8px}
+
+/* ===== DESAFIO DE DADOS ===== */
+.roll{margin-top:10px}
+.challenge-info{
+  margin-bottom:10px;padding:10px 12px;
+  background:rgba(0,0,0,.35);border:1px solid #4a5550;
+  font-size:12px;line-height:1.5;color:#c5cdc8;
+}
+.challenge-info strong{color:#d5c45c;font-size:13px}
+.challenge-info .diff{color:#aab4ae;font-size:11px}
+.roll-btn{
+  padding:11px 20px;background:#253532;color:#fff;
+  border:1px solid #a5aea8;font-weight:bold;letter-spacing:1px;
+  transition:background .15s;
+}
+.roll-btn:hover{background:#354845}
+.roll-result{
+  margin-top:8px;padding:9px 12px;
+  border:1px solid #68736e;font-size:12px;letter-spacing:.5px;
+}
+.roll-result.success{color:#b8d5ae;background:rgba(40,70,40,.25)}
+.roll-result.fail{color:#e0aaa0;background:rgba(70,30,30,.25)}
+
+/* ===== PAINEL DE PISTAS ===== */
+.clue-panel{
+  position:absolute;right:16px;top:16px;width:290px;z-index:30;
+  background:#0b1110ee;border:2px solid #7b8580;
+  padding:14px 16px;box-shadow:0 0 0 4px #050707;
+  max-height:calc(100% - 40px);overflow-y:auto;
+}
+.clue-panel h3{color:#d5c45c;font-size:12px;margin:0 0 12px;letter-spacing:1px}
+.clue-panel div{font-size:12px;padding:7px 0;border-bottom:1px solid #26302e;line-height:1.35}
+.clue-panel em{color:#69736e;font-size:11px}
+.hidden{display:none!important}
+
+/* ===== RESPONSIVO ===== */
+@media(max-width:900px){
+  .portrait{display:none}
+  .scene-title{max-width:75vw;font-size:10px}
+  .dialogue{left:2%;right:2%;bottom:2%}
+  .panel{min-height:140px;padding:12px 14px}
+  .text{font-size:15px}
+  .sprite{width:95px;height:140px}
+  .topbar strong{font-size:10px}
+  .actions #clues{font-size:11px}
+}
+@media(max-width:600px){
+  .sprite{width:70px;height:105px;bottom:18%!important}
+  .scene-title{display:none}
+  .text{font-size:14px}
+  .clue-panel{width:min(280px,90vw);right:8px;top:8px}
+} 
