@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Entrar — O Último Selo</title>
+  <title>Entrar — Scooby-doo</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
     .auth-form{display:flex;flex-direction:column;gap:12px;max-width:320px;margin:0 auto;text-align:left}
@@ -22,7 +22,7 @@
 <body class="title">
   <div class="grain"></div>
   <main class="title-card">
-    <div class="eyebrow">SUPERNATURAL • O ÚLTIMO SELO</div>
+    <div class="eyebrow">SCOOBY-DOO</div>
     <h1 style="font-size:clamp(36px,7vw,64px)">ENTRAR</h1>
     <?php if ($error): ?><div class="auth-error"><?= htmlspecialchars($error) ?></div><?php endif; ?>
     <form method="post" class="auth-form">
