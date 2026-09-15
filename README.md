@@ -1,1 +1,1 @@
-# jogo_supernatural
+# jogo_scooby-doo
