@@ -1,4 +1,28 @@
-<!doctype html>
+<?php
+require_once __DIR__.'/includes/Auth.php';
+Auth::startSession();
+if (Auth::check()) {
+    header('Location: index.php');
+    exit;
+}
+$error = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user = trim($_POST['username'] ?? '');
+    $pass = $_POST['password'] ?? '';
+    $pass2 = $_POST['password2'] ?? '';
+    if ($pass !== $pass2) {
+        $error = 'As senhas não coincidem.';
+    } else {
+        $res = Auth::register($user, $pass);
+        if ($res['ok']) {
+            header('Location: index.php');
+            exit;
+        }
+        $error = $res['error'] ?? 'Erro ao cadastrar.';
+    }
+}
+?>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">

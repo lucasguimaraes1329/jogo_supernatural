@@ -1,4 +1,9 @@
- <!DOCTYPE html>
+<?php
+require_once __DIR__.'/includes/Auth.php';
+Auth::requireLogin();
+$username = Auth::username();
+?>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">

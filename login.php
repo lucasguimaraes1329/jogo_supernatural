@@ -1,4 +1,23 @@
-<!doctype html>
+<?php
+require_once __DIR__.'/includes/Auth.php';
+Auth::startSession();
+if (Auth::check()) {
+    header('Location: index.php');
+    exit;
+}
+$error = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user = trim($_POST['username'] ?? '');
+    $pass = $_POST['password'] ?? '';
+    $res = Auth::login($user, $pass);
+    if ($res['ok']) {
+        header('Location: index.php');
+        exit;
+    }
+    $error = $res['error'] ?? 'Erro ao entrar.';
+}
+?>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
