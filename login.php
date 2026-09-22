@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </button>
     </form>
     <div class="auth-links">
-      Não tem conta? <a href="register.php">Cadastre-se</a>
+      Não tem conta? <a href="registro.php">Cadastre-se</a>
     </div>
   </main>
 </body>
