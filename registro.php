@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Cadastrar — Scooby-doo</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="style.css">
   <style>
     .auth-form{display:flex;flex-direction:column;gap:12px;max-width:320px;margin:0 auto;text-align:left}
     .auth-form label{font-size:11px;letter-spacing:1px;color:#aab4ae}
